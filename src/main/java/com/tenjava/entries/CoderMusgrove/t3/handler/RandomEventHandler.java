@@ -13,6 +13,7 @@ import com.tenjava.entries.CoderMusgrove.t3.TenJava;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEvent;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventCreeperSpawn;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventLightning;
+import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventPoop;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventRainCatsAndDogs;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventSpawnLava;
 
@@ -27,18 +28,30 @@ public class RandomEventHandler {
 	private Random random = new Random();
 	private List<RandomEvent> randomEvents = new ArrayList<>();
 
+	/**
+	 * Anything needed to initialize the Random Events
+	 */
 	private RandomEventHandler() {
-		randomEvents.add(new RandomEventLightning());
-		randomEvents.add(new RandomEventCreeperSpawn());
-		randomEvents.add(new RandomEventSpawnLava());
-		randomEvents.add(new RandomEventRainCatsAndDogs());
+		if (TenJava.getInstance().getRandomLightning()) randomEvents.add(new RandomEventLightning());
+		if (TenJava.getInstance().getRandomCreepers()) randomEvents.add(new RandomEventCreeperSpawn());
+		if (TenJava.getInstance().getRandomSpawnLava()) randomEvents.add(new RandomEventSpawnLava());
+		if (TenJava.getInstance().getRandomRainCatsAndDogs()) randomEvents.add(new RandomEventRainCatsAndDogs());
+		if (TenJava.getInstance().getRandomPoop()) randomEvents.add(new RandomEventPoop());
 		initRunnable();
 	}
 
-	public static void initialize() {
-		new RandomEventHandler();
+	/**
+	 * Initializes the RandomEvent Handler
+	 */
+	public static RandomEventHandler initialize() {
+		return new RandomEventHandler();
 	}
 
+	/**
+	 * Returns the runnable used.
+	 * 
+	 * @return
+	 */
 	public BukkitRunnable getRunnable() {
 		return runnable;
 	}
@@ -59,7 +72,7 @@ public class RandomEventHandler {
 				if (r == 0) return;
 				RandomEvent event = randomEvents.get(r);
 				event.runRandomEvent(p);
-				// randomEvents.get(0).runRandomEvent(p);
+				// randomEvents.get(1).runRandomEvent(p);
 			}
 		};
 		runnable.runTaskTimer(TenJava.getInstance(), 20, 5 * 20);

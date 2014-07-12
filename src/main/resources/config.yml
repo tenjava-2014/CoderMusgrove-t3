@@ -1,0 +1,27 @@
+# The time between each run (in seconds)
+delay: 5
+
+# Choose from the list what you want enabled
+# If you would like something enabled, put "true"
+# If you wouldn't like it enabled, put "false"
+
+# Lightning will randomly strike down in a 3 block radius of a player
+lightning: true
+
+# It will rain cats and dogs!
+cats-and-dogs: true
+
+# Creepers will randomly spawn in a 20 block radius at any time
+creeper: true
+
+# Give the creeper a change to be a charged creeper?
+# If creeper isn't true, this one won't work.
+charged-creeper: true
+
+# In a 10 block radius of a player,
+# If a 4x2x4 is found of stone, a block of lava will spawn
+lava: true
+
+# While wandering around in grass, podzol will spawn,
+# and the player will feel relieved
+poop: true
