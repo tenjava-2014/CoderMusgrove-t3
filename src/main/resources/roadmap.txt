@@ -1,0 +1,7 @@
+THEME: What random events can occur in Minecraft?
+
+- Random events while playing
+	- lightning
+	- 10 block radius around player[3 block radius of stone: spawn lava!]
+	- spawn creeper randomly in daylight
+	
