@@ -35,3 +35,7 @@ waterwave: true
 # The larger, the more rare of it occuring.
 # There's also a chance that a sinkhole will decide not to appear
 sinkholes: true
+
+# Sometimes, when you engage into hitting an entity, you get to
+# fly backwards! Be careful where you attack!
+take-entity-velocity: true

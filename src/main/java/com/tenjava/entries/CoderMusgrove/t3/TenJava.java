@@ -23,6 +23,7 @@ public class TenJava extends JavaPlugin {
 	private boolean poop = true;
 	private boolean waterWave = true;
 	private boolean sinkhole = true;
+	private boolean takeEntityVelocity = true;
 
 	@Override
 	public void onEnable() {
@@ -54,7 +55,7 @@ public class TenJava extends JavaPlugin {
 	}
 
 	/**
-	 * Returns if random lightning will be used.
+	 * Returns if random lightning is enabled.
 	 * 
 	 * @return
 	 */
@@ -63,7 +64,7 @@ public class TenJava extends JavaPlugin {
 	}
 
 	/**
-	 * Returns if random creepers will spawn in daylight
+	 * Returns if randomly spawning creatures at any time of day/night is enabled.
 	 * 
 	 * @return
 	 */
@@ -83,7 +84,7 @@ public class TenJava extends JavaPlugin {
 	}
 
 	/**
-	 * Returns if it will rain dogs
+	 * Returns if raining dogs is enabled.
 	 * 
 	 * @return
 	 */
@@ -92,7 +93,7 @@ public class TenJava extends JavaPlugin {
 	}
 
 	/**
-	 * Returns if lava will randomly spawn
+	 * Returns if lava randomly spawning is enabled.
 	 * 
 	 * @return
 	 */
@@ -101,7 +102,7 @@ public class TenJava extends JavaPlugin {
 	}
 
 	/**
-	 * Returns if the player will poop
+	 * Returns if a player randomly pooping is enabled.
 	 * 
 	 * @return
 	 */
@@ -110,7 +111,7 @@ public class TenJava extends JavaPlugin {
 	}
 
 	/**
-	 * Returns if a random water wave will occur
+	 * Returns if a random water wave is enabled.
 	 * 
 	 * @return
 	 */
@@ -119,7 +120,7 @@ public class TenJava extends JavaPlugin {
 	}
 
 	/**
-	 * Returns if random sinkholes may occur
+	 * Returns if random sinkholes is enabled.
 	 * 
 	 * @return
 	 */
@@ -128,10 +129,19 @@ public class TenJava extends JavaPlugin {
 	}
 
 	/**
+	 * Returns if random takes of an entity's velocity when attacking is enabled.
+	 * 
+	 * @return
+	 */
+	public boolean getRandomTakeEntityVelocity() {
+		return takeEntityVelocity;
+	}
+
+	/**
 	 * Loads the values from the config.
 	 * 
 	 * Each value is handled with a try and catch just in case something goes
-	 * wrong
+	 * wrong.
 	 */
 	private void loadValues() {
 		try {
@@ -186,6 +196,12 @@ public class TenJava extends JavaPlugin {
 			sinkhole = getConfig().getBoolean("sinkholes");
 		} catch (Exception e) {
 			System.out.println("Error loading 'sinkholes' from config.yml! Using the default value (true)");
+		}
+
+		try {
+			sinkhole = getConfig().getBoolean("take-entity-velocity");
+		} catch (Exception e) {
+			System.out.println("Error loading 'take-entity-velocity' from config.yml! Using the default value (true)");
 		}
 	}
 }

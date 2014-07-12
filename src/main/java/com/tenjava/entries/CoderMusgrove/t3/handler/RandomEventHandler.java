@@ -17,6 +17,7 @@ import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventPoop;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventRainDogs;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventSinkhole;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventSpawnLava;
+import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventTakeEntityVelocity;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventWaterWave;
 
 /**
@@ -34,13 +35,19 @@ public class RandomEventHandler {
 	 * Anything needed to initialize the Random Events
 	 */
 	private RandomEventHandler() {
-		if (TenJava.getInstance().getRandomLightning()) randomEvents.add(new RandomEventLightning());
-		if (TenJava.getInstance().getRandomCreepers()) randomEvents.add(new RandomEventCreeperSpawn());
-		if (TenJava.getInstance().getRandomSpawnLava()) randomEvents.add(new RandomEventSpawnLava());
-		if (TenJava.getInstance().getRandomRainDogs()) randomEvents.add(new RandomEventRainDogs());
-		if (TenJava.getInstance().getRandomPoop()) randomEvents.add(new RandomEventPoop());
-		if (TenJava.getInstance().getRandomWaterWave()) randomEvents.add(new RandomEventWaterWave());
-		if (TenJava.getInstance().getRandomSinkhole()) randomEvents.add(new RandomEventSinkhole());
+		TenJava plugin = TenJava.getInstance();
+		if (plugin.getRandomLightning()) randomEvents.add(new RandomEventLightning());
+		if (plugin.getRandomCreepers()) randomEvents.add(new RandomEventCreeperSpawn());
+		if (plugin.getRandomSpawnLava()) randomEvents.add(new RandomEventSpawnLava());
+		if (plugin.getRandomRainDogs()) randomEvents.add(new RandomEventRainDogs());
+		if (plugin.getRandomPoop()) randomEvents.add(new RandomEventPoop());
+		if (plugin.getRandomWaterWave()) randomEvents.add(new RandomEventWaterWave());
+		if (plugin.getRandomSinkhole()) randomEvents.add(new RandomEventSinkhole());
+		if (plugin.getRandomTakeEntityVelocity()) {
+			RandomEventTakeEntityVelocity e = new RandomEventTakeEntityVelocity();
+			plugin.getServer().getPluginManager().registerEvents(e, plugin);
+			randomEvents.add(e);
+		}
 		initRunnable();
 	}
 
@@ -76,7 +83,7 @@ public class RandomEventHandler {
 				if (r == randomEvents.size()) return;
 				RandomEvent event = randomEvents.get(r);
 				event.runRandomEvent(p);
-				// randomEvents.get(6).runRandomEvent(p);
+				// randomEvents.get(7).runRandomEvent(p);
 			}
 		};
 		runnable.runTaskTimer(TenJava.getInstance(), 20, 5 * 20);
