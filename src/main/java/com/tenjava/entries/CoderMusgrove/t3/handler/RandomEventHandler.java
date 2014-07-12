@@ -14,7 +14,7 @@ import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEvent;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventCreeperSpawn;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventLightning;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventPoop;
-import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventRainCatsAndDogs;
+import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventRainDogs;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventSpawnLava;
 
 /**
@@ -35,7 +35,7 @@ public class RandomEventHandler {
 		if (TenJava.getInstance().getRandomLightning()) randomEvents.add(new RandomEventLightning());
 		if (TenJava.getInstance().getRandomCreepers()) randomEvents.add(new RandomEventCreeperSpawn());
 		if (TenJava.getInstance().getRandomSpawnLava()) randomEvents.add(new RandomEventSpawnLava());
-		if (TenJava.getInstance().getRandomRainCatsAndDogs()) randomEvents.add(new RandomEventRainCatsAndDogs());
+		if (TenJava.getInstance().getRandomRainDogs()) randomEvents.add(new RandomEventRainDogs());
 		if (TenJava.getInstance().getRandomPoop()) randomEvents.add(new RandomEventPoop());
 		initRunnable();
 	}
@@ -68,11 +68,11 @@ public class RandomEventHandler {
 				List<Player> players = w.getPlayers();
 				if (players.isEmpty()) return;
 				Player p = players.get(random.nextInt(players.size()));
-				int r = random.nextInt(5);
-				if (r == 0) return;
+				int r = random.nextInt(randomEvents.size() + 1);
+				if (r > randomEvents.size()) return;
 				RandomEvent event = randomEvents.get(r);
 				event.runRandomEvent(p);
-				// randomEvents.get(2).runRandomEvent(p);
+				// randomEvents.get(3).runRandomEvent(p);
 			}
 		};
 		runnable.runTaskTimer(TenJava.getInstance(), 20, 5 * 20);

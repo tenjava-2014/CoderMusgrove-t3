@@ -18,7 +18,7 @@ public class TenJava extends JavaPlugin {
 	private int delay = 5;
 	private boolean lightning;
 	private boolean creeper, chargedcreeper;
-	private boolean catsAndDogs;
+	private boolean rainDogs;
 	private boolean lava;
 	private boolean poop;
 
@@ -81,12 +81,12 @@ public class TenJava extends JavaPlugin {
 	}
 
 	/**
-	 * Returns if it will rain cats and dogs
+	 * Returns if it will rain dogs
 	 * 
 	 * @return
 	 */
-	public boolean getRandomRainCatsAndDogs() {
-		return catsAndDogs;
+	public boolean getRandomRainDogs() {
+		return rainDogs;
 	}
 
 	/**
@@ -139,9 +139,9 @@ public class TenJava extends JavaPlugin {
 		}
 
 		try {
-			catsAndDogs = getConfig().getBoolean("cats-and-dogs");
+			rainDogs = getConfig().getBoolean("rain-dogs");
 		} catch (Exception e) {
-			System.out.println("Error loading 'cats-and-dogs' from config.yml! Using the default value (true)");
+			System.out.println("Error loading 'rain-dogs' from config.yml! Using the default value (true)");
 		}
 
 		try {

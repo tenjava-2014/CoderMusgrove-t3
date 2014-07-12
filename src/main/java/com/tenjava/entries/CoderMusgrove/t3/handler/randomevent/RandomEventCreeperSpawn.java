@@ -3,6 +3,7 @@ package com.tenjava.entries.CoderMusgrove.t3.handler.randomevent;
 import java.util.Random;
 
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.entity.Creeper;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -29,9 +30,11 @@ public class RandomEventCreeperSpawn implements RandomEvent {
 		int rx = random.nextInt(40) - 20 + loc.getBlockX();
 		int rz = random.nextInt(40) - 20 + loc.getBlockZ();
 		int y = loc.getWorld().getHighestBlockYAt(rx, rz);
+		
 
 		Location target = new Location(loc.getWorld(), rx, y, rz);
 		Creeper creeper = (Creeper) target.getWorld().spawnEntity(target, EntityType.CREEPER);
+		p.playSound(creeper.getLocation(), Sound.AMBIENCE_CAVE, 2f, 1f);
 		if (TenJava.getInstance().getRandomCreeperCharged()) {
 			boolean charged = random.nextBoolean();
 			if (charged) creeper.setPowered(true);

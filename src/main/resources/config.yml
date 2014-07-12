@@ -8,8 +8,9 @@ delay: 5
 # Lightning will randomly strike down in a 3 block radius of a player
 lightning: true
 
-# It will rain cats and dogs!
-cats-and-dogs: true
+# It will rain dogs!
+# No cats, because they don't take fall damage, lol.
+rain-dogs: true
 
 # Creepers will randomly spawn in a 20 block radius at any time
 creeper: true
