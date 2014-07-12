@@ -51,8 +51,6 @@ public class RandomEventBonusChest implements RandomEvent {
 		b.setType(Material.CHEST);
 
 		int level = random.nextInt(11);
-
-		System.out.println(level);
 		
 		if (level == 10) setRichChest(b);
 		else if (level > 6) setFeasibleChest(b);

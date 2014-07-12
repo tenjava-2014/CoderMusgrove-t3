@@ -25,6 +25,7 @@ public class TenJava extends JavaPlugin {
 	private boolean sinkhole = true;
 	private boolean takeEntityVelocity = true;
 	private boolean bonusChests = true;
+	private boolean wind = true;
 
 	@Override
 	public void onEnable() {
@@ -148,6 +149,13 @@ public class TenJava extends JavaPlugin {
 	public boolean getRandomBonusChests() {
 		return bonusChests;
 	}
+	
+	/**
+	 * Returns if wind randomly lifting you momentarily is enabled.
+	 */
+	public boolean getRandomWind() {
+		return wind;
+	}
 
 	/**
 	 * Loads the values from the config.
@@ -220,6 +228,12 @@ public class TenJava extends JavaPlugin {
 			bonusChests = getConfig().getBoolean("bonus-chests");
 		} catch (Exception e) {
 			System.out.println("Error loading 'bonus-chests' from config.yml! Using the default value (true)");
+		}
+
+		try {
+			wind = getConfig().getBoolean("wind");
+		} catch (Exception e) {
+			System.out.println("Error loading 'wind' from config.yml! Using the default value (true)");
 		}
 	}
 }

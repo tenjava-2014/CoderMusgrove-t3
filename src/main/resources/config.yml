@@ -45,3 +45,6 @@ take-entity-velocity: true
 # Let's help out the players, and give them some helpful items!
 # There are 3 levels: poor (lowest class), feasible (middle class), rich (highest class)
 bonus-chests: true
+
+# You become lifted off of the ground momentarily because of a strong breeze.
+wind: true
