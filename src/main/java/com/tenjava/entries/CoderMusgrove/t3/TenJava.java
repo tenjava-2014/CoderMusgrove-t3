@@ -26,6 +26,7 @@ public class TenJava extends JavaPlugin {
 	private boolean takeEntityVelocity = true;
 	private boolean bonusChests = true;
 	private boolean wind = true;
+	private boolean angryWolf = true;
 
 	@Override
 	public void onEnable() {
@@ -149,12 +150,23 @@ public class TenJava extends JavaPlugin {
 	public boolean getRandomBonusChests() {
 		return bonusChests;
 	}
-	
+
 	/**
 	 * Returns if wind randomly lifting you momentarily is enabled.
+	 * 
+	 * @return
 	 */
 	public boolean getRandomWind() {
 		return wind;
+	}
+
+	/**
+	 * Returns if angry wolves spawning randomly to attack you is enabled.
+	 * 
+	 * @return
+	 */
+	public boolean getRandomAngryWolf() {
+		return angryWolf;
 	}
 
 	/**
@@ -234,6 +246,12 @@ public class TenJava extends JavaPlugin {
 			wind = getConfig().getBoolean("wind");
 		} catch (Exception e) {
 			System.out.println("Error loading 'wind' from config.yml! Using the default value (true)");
+		}
+
+		try {
+			angryWolf = getConfig().getBoolean("angry-wolf");
+		} catch (Exception e) {
+			System.out.println("Error loading 'angry-wolf' from config.yml! Using the default value (true)");
 		}
 	}
 }

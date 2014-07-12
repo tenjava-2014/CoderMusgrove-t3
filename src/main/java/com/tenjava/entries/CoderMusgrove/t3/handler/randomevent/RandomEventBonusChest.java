@@ -45,7 +45,7 @@ public class RandomEventBonusChest implements RandomEvent {
 		int rx = random.nextInt(40) - 20 + loc.getBlockX();
 		int rz = random.nextInt(40) - 20 + loc.getBlockZ();
 
-		Location target = new Location(loc.getWorld(), rx, loc.getWorld().getHighestBlockYAt(loc), rz);
+		Location target = new Location(loc.getWorld(), rx, loc.getWorld().getHighestBlockYAt(rx, rz), rz);
 
 		Block b = target.getBlock();
 		b.setType(Material.CHEST);

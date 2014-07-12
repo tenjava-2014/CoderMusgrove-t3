@@ -48,3 +48,8 @@ bonus-chests: true
 
 # You become lifted off of the ground momentarily because of a strong breeze.
 wind: true
+
+# Allow angry wolves to randomly spawn near a player, and attack them.
+# This is because man's best friend isn't always their best friend, and
+# the wolf needs to protect its territory!
+angry-wolf: true

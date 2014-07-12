@@ -11,6 +11,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import com.tenjava.entries.CoderMusgrove.t3.TenJava;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEvent;
+import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventAngryWolf;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventBonusChest;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventCreeperSpawn;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventLightning;
@@ -52,6 +53,7 @@ public class RandomEventHandler {
 		}
 		if (plugin.getRandomBonusChests()) randomEvents.add(new RandomEventBonusChest());
 		if (plugin.getRandomWind()) randomEvents.add(new RandomEventWind());
+		if (plugin.getRandomAngryWolf()) randomEvents.add(new RandomEventAngryWolf());
 		initRunnable();
 	}
 
@@ -87,7 +89,7 @@ public class RandomEventHandler {
 				if (r == randomEvents.size()) return;
 				RandomEvent event = randomEvents.get(r);
 				event.runRandomEvent(p);
-				// randomEvents.get(9).runRandomEvent(p);
+				// randomEvents.get(10).runRandomEvent(p);
 			}
 		};
 		runnable.runTaskTimer(TenJava.getInstance(), 20, TenJava.getInstance().getDelay());
