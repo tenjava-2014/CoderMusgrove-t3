@@ -72,7 +72,7 @@ public class RandomEventHandler {
 				if (r == 0) return;
 				RandomEvent event = randomEvents.get(r);
 				event.runRandomEvent(p);
-				// randomEvents.get(1).runRandomEvent(p);
+				// randomEvents.get(2).runRandomEvent(p);
 			}
 		};
 		runnable.runTaskTimer(TenJava.getInstance(), 20, 5 * 20);

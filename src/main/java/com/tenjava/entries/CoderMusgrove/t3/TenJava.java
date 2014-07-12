@@ -153,7 +153,7 @@ public class TenJava extends JavaPlugin {
 		try {
 			poop = getConfig().getBoolean("poop");
 		} catch (Exception e) {
-			System.out.println("Error loading 'delay' from config.yml! Using the default value (true)");
+			System.out.println("Error loading 'poop' from config.yml! Using the default value (true)");
 		}
 	}
 }
