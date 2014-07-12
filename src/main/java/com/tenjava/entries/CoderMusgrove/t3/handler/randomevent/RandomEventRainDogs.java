@@ -41,7 +41,6 @@ public class RandomEventRainDogs implements RandomEvent {
 				if (selectType != 0) continue;
 				type = EntityType.WOLF;
 				Wolf wolf = (Wolf) target.getWorld().spawnEntity(target, type);
-				wolf.setMetadata("raining", new FixedMetadataValue(TenJava.getInstance(), ""));
 			}
 		}
 	}

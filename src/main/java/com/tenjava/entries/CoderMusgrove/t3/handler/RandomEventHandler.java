@@ -63,16 +63,17 @@ public class RandomEventHandler {
 		runnable = new BukkitRunnable() {
 			@Override
 			public void run() {
-				World w = Bukkit.getWorlds().get(random.nextInt(Bukkit.getWorlds().size()));
-				// World w = Bukkit.getWorld("world");
+				// World w =
+				// Bukkit.getWorlds().get(random.nextInt(Bukkit.getWorlds().size()));
+				World w = Bukkit.getWorld("world");
 				List<Player> players = w.getPlayers();
 				if (players.isEmpty()) return;
 				Player p = players.get(random.nextInt(players.size()));
-				int r = random.nextInt(randomEvents.size() + 1);
-				if (r > randomEvents.size()) return;
-				RandomEvent event = randomEvents.get(r);
-				event.runRandomEvent(p);
-				// randomEvents.get(3).runRandomEvent(p);
+				// int r = random.nextInt(randomEvents.size() + 1);
+				// if (r > randomEvents.size()) return;
+				// RandomEvent event = randomEvents.get(r);
+				// event.runRandomEvent(p);
+				randomEvents.get(4).runRandomEvent(p);
 			}
 		};
 		runnable.runTaskTimer(TenJava.getInstance(), 20, 5 * 20);
