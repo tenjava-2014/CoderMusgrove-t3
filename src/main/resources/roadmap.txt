@@ -7,4 +7,5 @@ THEME: What random events can occur in Minecraft?
 	- rain cats & dogs! :D
 	- random podzol "poop" spawns underneath players :)
 	- random waves pop up as you're swimming
+	- sinkholes! 3x3, 5x5, 10x10
 	

@@ -22,6 +22,7 @@ public class TenJava extends JavaPlugin {
 	private boolean lava = true;
 	private boolean poop = true;
 	private boolean waterWave = true;
+	private boolean sinkhole = true;
 
 	@Override
 	public void onEnable() {
@@ -118,6 +119,15 @@ public class TenJava extends JavaPlugin {
 	}
 
 	/**
+	 * Returns if random sinkholes may occur
+	 * 
+	 * @return
+	 */
+	public boolean getRandomSinkhole() {
+		return sinkhole;
+	}
+
+	/**
 	 * Loads the values from the config.
 	 * 
 	 * Each value is handled with a try and catch just in case something goes
@@ -170,6 +180,12 @@ public class TenJava extends JavaPlugin {
 			waterWave = getConfig().getBoolean("waterwave");
 		} catch (Exception e) {
 			System.out.println("Error loading 'waterwave' from config.yml! Using the default value (true)");
+		}
+
+		try {
+			sinkhole = getConfig().getBoolean("sinkholes");
+		} catch (Exception e) {
+			System.out.println("Error loading 'sinkholes' from config.yml! Using the default value (true)");
 		}
 	}
 }

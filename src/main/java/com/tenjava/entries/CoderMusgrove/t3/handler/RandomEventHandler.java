@@ -15,6 +15,7 @@ import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventCreep
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventLightning;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventPoop;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventRainDogs;
+import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventSinkhole;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventSpawnLava;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventWaterWave;
 
@@ -39,6 +40,7 @@ public class RandomEventHandler {
 		if (TenJava.getInstance().getRandomRainDogs()) randomEvents.add(new RandomEventRainDogs());
 		if (TenJava.getInstance().getRandomPoop()) randomEvents.add(new RandomEventPoop());
 		if (TenJava.getInstance().getRandomWaterWave()) randomEvents.add(new RandomEventWaterWave());
+		if (TenJava.getInstance().getRandomSinkhole()) randomEvents.add(new RandomEventSinkhole());
 		initRunnable();
 	}
 
@@ -74,7 +76,7 @@ public class RandomEventHandler {
 				if (r == randomEvents.size()) return;
 				RandomEvent event = randomEvents.get(r);
 				event.runRandomEvent(p);
-				// randomEvents.get(5).runRandomEvent(p);
+				// randomEvents.get(6).runRandomEvent(p);
 			}
 		};
 		runnable.runTaskTimer(TenJava.getInstance(), 20, 5 * 20);

@@ -29,3 +29,9 @@ poop: true
 
 # While swimming, you might just be pushed up by a wave!
 waterwave: true
+
+# Sinkholes : Would you like there to be sinkholes in Minecraft?
+# Sizes will be expressed in 3x3, 5x5, and 10x10.
+# The larger, the more rare of it occuring.
+# There's also a chance that a sinkhole will decide not to appear
+sinkholes: true
