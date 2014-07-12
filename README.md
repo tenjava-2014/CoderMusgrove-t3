@@ -43,6 +43,8 @@ Some of the Random Events include:
 - A random bonus chest to help you out along your way
 - Randomly taking a poop for some quick relief
 - You randomly fall into a sink hole.
+- Sometimes you will be lifted by wind, it gets gusty outside!
+- Angry wolves will spawn and attack you to protect their territory!
 
 Note that all of the features are configurable, as in you can enable or disable them, via the config! All events happen near a player.
 Don't grow too attached to your house, a sinkhole might spawn in it.
