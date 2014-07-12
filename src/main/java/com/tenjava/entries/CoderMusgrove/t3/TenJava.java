@@ -16,11 +16,12 @@ public class TenJava extends JavaPlugin {
 	private static TenJava instance;
 	private RandomEventHandler randomEventHandler;
 	private int delay = 5;
-	private boolean lightning;
-	private boolean creeper, chargedcreeper;
-	private boolean rainDogs;
-	private boolean lava;
-	private boolean poop;
+	private boolean lightning = true;
+	private boolean creeper, chargedcreeper = true;
+	private boolean rainDogs = true;
+	private boolean lava = true;
+	private boolean poop = true;
+	private boolean waterWave = true;
 
 	@Override
 	public void onEnable() {
@@ -108,6 +109,15 @@ public class TenJava extends JavaPlugin {
 	}
 
 	/**
+	 * Returns if a random water wave will occur
+	 * 
+	 * @return
+	 */
+	public boolean getRandomWaterWave() {
+		return waterWave;
+	}
+
+	/**
 	 * Loads the values from the config.
 	 * 
 	 * Each value is handled with a try and catch just in case something goes
@@ -154,6 +164,12 @@ public class TenJava extends JavaPlugin {
 			poop = getConfig().getBoolean("poop");
 		} catch (Exception e) {
 			System.out.println("Error loading 'poop' from config.yml! Using the default value (true)");
+		}
+
+		try {
+			waterWave = getConfig().getBoolean("waterwave");
+		} catch (Exception e) {
+			System.out.println("Error loading 'waterwave' from config.yml! Using the default value (true)");
 		}
 	}
 }

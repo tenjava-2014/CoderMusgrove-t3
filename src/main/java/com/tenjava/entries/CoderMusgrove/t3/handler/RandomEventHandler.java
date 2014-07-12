@@ -16,6 +16,7 @@ import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventLight
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventPoop;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventRainDogs;
 import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventSpawnLava;
+import com.tenjava.entries.CoderMusgrove.t3.handler.randomevent.RandomEventWaterWave;
 
 /**
  * A handler for all of the random events that are going to occur.
@@ -37,6 +38,7 @@ public class RandomEventHandler {
 		if (TenJava.getInstance().getRandomSpawnLava()) randomEvents.add(new RandomEventSpawnLava());
 		if (TenJava.getInstance().getRandomRainDogs()) randomEvents.add(new RandomEventRainDogs());
 		if (TenJava.getInstance().getRandomPoop()) randomEvents.add(new RandomEventPoop());
+		if (TenJava.getInstance().getRandomWaterWave()) randomEvents.add(new RandomEventWaterWave());
 		initRunnable();
 	}
 
@@ -63,17 +65,16 @@ public class RandomEventHandler {
 		runnable = new BukkitRunnable() {
 			@Override
 			public void run() {
-				// World w =
-				// Bukkit.getWorlds().get(random.nextInt(Bukkit.getWorlds().size()));
-				World w = Bukkit.getWorld("world");
+				World w = Bukkit.getWorlds().get(random.nextInt(Bukkit.getWorlds().size()));
+				// World w = Bukkit.getWorld("world");
 				List<Player> players = w.getPlayers();
 				if (players.isEmpty()) return;
 				Player p = players.get(random.nextInt(players.size()));
-				// int r = random.nextInt(randomEvents.size() + 1);
-				// if (r > randomEvents.size()) return;
-				// RandomEvent event = randomEvents.get(r);
-				// event.runRandomEvent(p);
-				randomEvents.get(4).runRandomEvent(p);
+				int r = random.nextInt(randomEvents.size() + 1);
+				if (r == randomEvents.size()) return;
+				RandomEvent event = randomEvents.get(r);
+				event.runRandomEvent(p);
+				// randomEvents.get(5).runRandomEvent(p);
 			}
 		};
 		runnable.runTaskTimer(TenJava.getInstance(), 20, 5 * 20);

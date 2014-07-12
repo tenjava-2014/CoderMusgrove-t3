@@ -7,10 +7,6 @@ import org.bukkit.Material;
 import org.bukkit.World.Environment;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Wolf;
-import org.bukkit.metadata.FixedMetadataValue;
-
-import com.tenjava.entries.CoderMusgrove.t3.TenJava;
 
 /**
  * Cats and dogs will randomly rain down upon you!
@@ -40,7 +36,7 @@ public class RandomEventRainDogs implements RandomEvent {
 				EntityType type = null;
 				if (selectType != 0) continue;
 				type = EntityType.WOLF;
-				Wolf wolf = (Wolf) target.getWorld().spawnEntity(target, type);
+				target.getWorld().spawnEntity(target, type);
 			}
 		}
 	}

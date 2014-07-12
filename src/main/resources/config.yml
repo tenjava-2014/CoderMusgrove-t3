@@ -26,3 +26,6 @@ lava: true
 # While wandering around in grass, podzol will spawn,
 # and the player will feel relieved
 poop: true
+
+# While swimming, you might just be pushed up by a wave!
+waterwave: true

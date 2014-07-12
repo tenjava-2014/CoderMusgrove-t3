@@ -6,4 +6,5 @@ THEME: What random events can occur in Minecraft?
 	- spawn creeper randomly in daylight
 	- rain cats & dogs! :D
 	- random podzol "poop" spawns underneath players :)
+	- random waves pop up as you're swimming
 	
