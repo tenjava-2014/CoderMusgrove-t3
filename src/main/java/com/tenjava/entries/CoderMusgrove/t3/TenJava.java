@@ -24,6 +24,7 @@ public class TenJava extends JavaPlugin {
 	private boolean waterWave = true;
 	private boolean sinkhole = true;
 	private boolean takeEntityVelocity = true;
+	private boolean bonusChests = true;
 
 	@Override
 	public void onEnable() {
@@ -64,7 +65,8 @@ public class TenJava extends JavaPlugin {
 	}
 
 	/**
-	 * Returns if randomly spawning creatures at any time of day/night is enabled.
+	 * Returns if randomly spawning creatures at any time of day/night is
+	 * enabled.
 	 * 
 	 * @return
 	 */
@@ -129,12 +131,22 @@ public class TenJava extends JavaPlugin {
 	}
 
 	/**
-	 * Returns if random takes of an entity's velocity when attacking is enabled.
+	 * Returns if random takes of an entity's velocity when attacking is
+	 * enabled.
 	 * 
 	 * @return
 	 */
 	public boolean getRandomTakeEntityVelocity() {
 		return takeEntityVelocity;
+	}
+
+	/**
+	 * Returns if random bonus chests appearing is enabled.
+	 * 
+	 * @return
+	 */
+	public boolean getRandomBonusChests() {
+		return bonusChests;
 	}
 
 	/**
@@ -202,6 +214,12 @@ public class TenJava extends JavaPlugin {
 			sinkhole = getConfig().getBoolean("take-entity-velocity");
 		} catch (Exception e) {
 			System.out.println("Error loading 'take-entity-velocity' from config.yml! Using the default value (true)");
+		}
+
+		try {
+			bonusChests = getConfig().getBoolean("bonus-chests");
+		} catch (Exception e) {
+			System.out.println("Error loading 'bonus-chests' from config.yml! Using the default value (true)");
 		}
 	}
 }

@@ -10,8 +10,6 @@ This is a submission for the 2014 ten.java contest.
 - __MC Version:__ 1.7.9 (latest Bukkit beta)
 - __Stream URL:__ https://twitch.tv/CoderMusgrove
 
-<!-- put chosen theme above -->
-
 ---------------------------------------
 
 Compilation
@@ -31,5 +29,20 @@ Usage
 1. Install plugin
 2. Do things with it
 
-<!-- Hi, CoderMusgrove! This is the default README for every ten.java submission. -->
-<!-- We encourage you to edit this README with some information about your submission – keep in mind you'll be scored on documentation! -->
+Information
+-----------
+
+New events can now occur in Minecraft! This is to challenge the survival aspect, and just add a bit of randomness to it.
+Some of the Random Events include:
+- Lightning randomly striking down
+- A creeper spawning at any time 
+- A random day of raining dogs 
+- Lava randomly spawning in stone!
+- Hitting an entity and getting flown backwards!
+- While swimming, you could experience a wave!
+- A random bonus chest to help you out along your way
+- Randomly taking a poop for some quick relief
+- You randomly fall into a sink hole.
+
+Note that all of the features are configurable, as in you can enable or disable them, via the config! All events happen near a player.
+Don't grow too attached to your house, a sinkhole might spawn in it.
