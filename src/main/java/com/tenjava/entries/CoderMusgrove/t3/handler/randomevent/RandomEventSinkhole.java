@@ -7,6 +7,7 @@ import java.util.Random;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -19,7 +20,7 @@ import org.bukkit.entity.Player;
 public class RandomEventSinkhole implements RandomEvent {
 
 	private Random random = new Random();
-	private Material[] noFall = { Material.BEDROCK, Material.BEACON, Material.BOOKSHELF, Material.OBSIDIAN, Material.ENCHANTMENT_TABLE };
+	private Material[] noFall = { Material.BEDROCK, Material.BEACON, Material.BOOKSHELF, Material.OBSIDIAN, Material.ENCHANTMENT_TABLE, Material.CHEST };
 	private List<Location> fall = new ArrayList<>();
 
 	@Override
@@ -27,6 +28,8 @@ public class RandomEventSinkhole implements RandomEvent {
 	public void runRandomEvent(Player p) {
 		Location loc = p.getLocation();
 		World w = loc.getWorld();
+		Location underneath = new Location(w, loc.getX(), loc.getY() - 1, loc.getZ());
+		if (underneath.getBlock().getType() == Material.AIR) return;
 
 		int size = random.nextInt(11);
 		if (size == 10) size = 5;
@@ -57,6 +60,7 @@ public class RandomEventSinkhole implements RandomEvent {
 			byte data = b.getData();
 			b.setType(Material.AIR);
 			w.spawnFallingBlock(b.getLocation(), mat, data);
+			w.playSound(fallLoc, Sound.ZOMBIE_WOODBREAK, 3f, 1f);
 		}
 		fall.clear();
 	}

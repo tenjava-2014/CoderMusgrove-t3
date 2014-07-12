@@ -19,12 +19,11 @@ public class RandomEventLightning implements RandomEvent {
 	@Override
 	public void runRandomEvent(Player p) {
 		Location loc = p.getLocation();
-		System.out.println(p.getName());
 
 		int rx = random.nextInt(6) - 3 + loc.getBlockX();
 		int rz = random.nextInt(6) - 3 + loc.getBlockZ();
 
-		Location target = new Location(loc.getWorld(), rx, loc.getY(), rz);
+		Location target = new Location(loc.getWorld(), rx, loc.getWorld().getHighestBlockYAt(loc), rz);
 		target.getWorld().strikeLightning(target);
 	}
 }

@@ -15,7 +15,8 @@ public class TenJava extends JavaPlugin {
 
 	private static TenJava instance;
 	private RandomEventHandler randomEventHandler;
-	private int delay = 5;
+	private int delay = 100;
+	private int threads = 1;
 	private boolean lightning = true;
 	private boolean creeper, chargedcreeper = true;
 	private boolean rainDogs = true;
@@ -38,7 +39,8 @@ public class TenJava extends JavaPlugin {
 
 	@Override
 	public void onDisable() {
-		randomEventHandler.getRunnable().cancel();
+		for (int i = 0; i < randomEventHandler.getRunnables().size(); i++)
+			randomEventHandler.getRunnables().get(i).cancel();
 	}
 
 	/**
@@ -55,6 +57,15 @@ public class TenJava extends JavaPlugin {
 	 */
 	public int getDelay() {
 		return delay;
+	}
+
+	/**
+	 * The amount of threads running of the runnable for the random events.
+	 * 
+	 * @return
+	 */
+	public int getThreads() {
+		return threads;
 	}
 
 	/**
@@ -179,7 +190,13 @@ public class TenJava extends JavaPlugin {
 		try {
 			delay = getConfig().getInt("delay");
 		} catch (Exception e) {
-			System.out.println("Error loading 'delay' from config.yml! Using the default value (true)");
+			System.out.println("Error loading 'delay' from config.yml! Using the default value (100)");
+		}
+
+		try {
+			threads = getConfig().getInt("threads");
+		} catch (Exception e) {
+			System.out.println("Error loading 'threads' from config.yml! Using the default value (1)");
 		}
 
 		try {

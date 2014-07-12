@@ -2,6 +2,12 @@
 # Keep in mind, 20 = 1 second.
 delay: 100
 
+# Threads is like keeping a queue on how many of these tasks are running
+# WARNINING! Don't use too many! It might overload your server
+# I haven't tested how many will do the trick, but stick at 5 to be safe,
+# because that will save you bandwidth
+threads: 1
+
 # Choose from the list what you want enabled
 # If you would like something enabled, put "true"
 # If you wouldn't like it enabled, put "false"

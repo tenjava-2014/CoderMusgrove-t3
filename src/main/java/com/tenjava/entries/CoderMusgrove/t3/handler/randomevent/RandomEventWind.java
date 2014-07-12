@@ -2,6 +2,7 @@ package com.tenjava.entries.CoderMusgrove.t3.handler.randomevent;
 
 import java.util.Random;
 
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
@@ -23,5 +24,6 @@ public class RandomEventWind implements RandomEvent {
 		double z = random.nextDouble() * 2 - 1;
 
 		p.setVelocity(new Vector(x, y, z));
+		p.playSound(p.getLocation(), Sound.BAT_TAKEOFF, 1f, 1f);
 	}
 }

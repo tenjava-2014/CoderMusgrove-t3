@@ -92,7 +92,7 @@ public class RandomEventBonusChest implements RandomEvent {
 	 *            - The chest that will be filled with the items
 	 */
 	private void setFeasibleChest(Block block) {
-		if (block.getState() instanceof Chest) return;
+		if (!(block.getState() instanceof Chest)) return;
 		Chest chest = (Chest) block.getState();
 		Inventory chestInv = chest.getBlockInventory();
 		ItemStack[] contents = chestInv.getContents();
@@ -117,7 +117,7 @@ public class RandomEventBonusChest implements RandomEvent {
 	 *            - The chest that will be filled with the items
 	 */
 	private void setRichChest(Block block) {
-		if (block.getState() instanceof Chest) return;
+		if (!(block.getState() instanceof Chest)) return;
 		Chest chest = (Chest) block.getState();
 		Inventory chestInv = chest.getBlockInventory();
 		ItemStack[] contents = chestInv.getContents();
